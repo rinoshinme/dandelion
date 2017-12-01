@@ -16,7 +16,8 @@ SOURCES += main.cpp\
     windows/logindlg.cpp \
     views/histview.cpp \
     views/waveview.cpp \
-    views/timageview.cpp
+    views/timageview.cpp \
+    windows/imageprocess1.cpp
 
 HEADERS  += \
     views/imageview.h \
@@ -26,6 +27,7 @@ HEADERS  += \
     views/waveview.h \
     structs/timage.h \
     views/timageview.h \
-    structs/pixel.h
+    structs/pixel.h \
+    windows/imageprocess1.h
 
 FORMS    +=

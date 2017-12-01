@@ -1,11 +1,11 @@
 #include "timageview.h"
 #include <QDebug>
 
-TImageView::TImageView(QWidget *parent)
+TImageView::TImageView(int winWidth, int winHeight, QWidget *parent)
     :QWidget(parent)
 {
-    int winWidth = width();
-    int winHeight = height();
+    // int winWidth = width();
+    // int winHeight = height();
     createDummyImage(winWidth, winHeight);
     QImage temp = m_image.saveToImage();
     m_pixmap = QPixmap::fromImage(temp);

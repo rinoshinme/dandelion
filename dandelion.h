@@ -13,5 +13,6 @@
 
 // windows
 #include "windows/logindlg.h"
+#include "windows/imageprocess1.h"
 
 #endif // DANDELION_H

@@ -27,5 +27,8 @@ int main(int argc, char *argv[])
     view.setImage(img);
     view.show();
     
+    // ImageProcess1 win;
+    // win.show();
+    
     return a.exec();
 }

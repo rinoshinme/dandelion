@@ -10,7 +10,12 @@ class TImageView : public QWidget
 public:
     enum VIEW_MODE { MODE_FIXED, MODE_ZOOM, };
 public:
-    explicit TImageView(QWidget *parent = 0);
+    explicit TImageView(int winWidth = DEFAULT_IMAGE_WIDTH,
+                        int winHeight = DEFAULT_IMAGE_HEIGHT,
+                        QWidget *parent = 0);
+    
+public:
+    TImageRGB& image() { return m_image; }
     
 signals:
     
