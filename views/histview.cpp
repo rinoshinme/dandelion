@@ -58,5 +58,5 @@ void HistView::paintEvent(QPaintEvent *event)
         QRect rect(x1, y1, x2, y2);
         painter.drawRect(rect);
     }
-    update();
+    // update();
 }

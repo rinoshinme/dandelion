@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QBrush>
 #include <QPen>
+#include <QTimer>
 
 // class for showing sound waveforms
 class WaveView : public QWidget
@@ -16,10 +17,11 @@ public:
 signals:
     
 public slots:
-    // void setWave();
+    void updateData();
     
 public:
     // QVector<double> getNormalizeData();
+    
     // events
     void paintEvent(QPaintEvent* event);
     
@@ -34,6 +36,13 @@ private:
     
     QBrush m_bkBrush;
     QPen m_linePen;
+    
+    QTimer* m_timer;
+    int m_time_interval;
+    int m_step_size;
+    int cnt;
+    
+    QPixmap* m_pixmap;
 };
 
 #endif // WAVEVIEW_H
