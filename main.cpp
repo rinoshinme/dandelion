@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <QImage>
 #include <QVector>
+#include <QDebug>
 
 #include "dandelion.h"
 
@@ -8,22 +9,23 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     
-#if 0
-    // MainWindow w;
-    // w.show();
-    QImage image;
-    image.load("F:\\data\\test\\timg.jpg");
+    QString infile("F:\\data\\test\\timg.jpg");
+    QString outfile("F:\\data\\test\\timg2.jpg");
     
-    ImageView view;
-    view.setImage(image);
-    view.adjustImageFullWindow();
-    view.show();
-#else
-    WaveView view;
-    view.show();
+    /*
+    TImageRGB image(infile);
+    qDebug() << image.width() << ", " << image.height();
     
-#endif
+    image.saveToFile(outfile);
+    qDebug() << "finished...";
+    */
+    
+    QImage img;
+    img.load("F:\\data\\test\\timg.jpg");
+    TImageView view;
+    view.setMode(TImageView::MODE_ZOOM);
+    view.setImage(img);
+    view.show();
     
     return a.exec();
 }
-

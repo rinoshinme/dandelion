@@ -9,15 +9,15 @@
 #include <QWheelEvent>
 #include <QMouseEvent>
 
-#define DEFAULT_WIDTH 1280
-#define DEFAULT_HEIGHT 720
+#define DEFAULT_IMAGE_WIDTH 1280
+#define DEFAULT_IMAGE_HEIGHT 720
 
 class ImageView : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ImageView(int win_width = DEFAULT_WIDTH, 
-                       int win_height = DEFAULT_HEIGHT, 
+    explicit ImageView(int win_width = DEFAULT_IMAGE_WIDTH, 
+                       int win_height = DEFAULT_IMAGE_HEIGHT, 
                        QWidget *parent = 0);
     ~ImageView() {
         qDebug() << "destructor!\n";

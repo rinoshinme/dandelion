@@ -98,7 +98,7 @@ void WaveView::paintEvent(QPaintEvent *event)
     
     QPainter painter2(this);
     painter2.drawPixmap(0, 0, *m_pixmap);
-    // 双缓冲，可以试用一个QPixmap保存画面
-    // painter首先在pixmap上绘制
-    // 画完之后将pixmap画到窗体上
+    // double buffering:
+    // draw new frame to m_pixmap
+    // and load m_pixmap to window
 }
