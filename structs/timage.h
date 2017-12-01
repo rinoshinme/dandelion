@@ -15,8 +15,8 @@ public:
     TImage();
     TImage(const QString& fname);
 private:
-    TImage(const TImage<T>& copy) = 0;
-    TImage<T> operator=(const TImage<T>& copy) = 0;
+    TImage(const TImage<T>& copy);
+    TImage<T> operator=(const TImage<T>& copy);
     
 public:
     int width() const { return m_width; }

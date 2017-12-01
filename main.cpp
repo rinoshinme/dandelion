@@ -19,9 +19,7 @@ int main(int argc, char *argv[])
     view.adjustImageFullWindow();
     view.show();
 #else
-    double arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    HistView view;
-    view.setValues(arr, 10);
+    WaveView view;
     view.show();
     
 #endif

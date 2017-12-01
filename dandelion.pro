@@ -14,13 +14,15 @@ TEMPLATE = app
 SOURCES += main.cpp\
     views/imageview.cpp \
     windows/logindlg.cpp \
-    views/histview.cpp
+    views/histview.cpp \
+    views/waveview.cpp
 
 HEADERS  += \
     views/imageview.h \
     windows/logindlg.h \
     views/histview.h \
-    image/timage.h \
-    dandelion.h
+    dandelion.h \
+    views/waveview.h \
+    structs/timage.h
 
 FORMS    +=

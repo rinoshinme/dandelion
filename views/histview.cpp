@@ -4,9 +4,9 @@
 
 HistView::HistView(QWidget *parent) : QWidget(parent)
 {
-    m_bkBrush = QBrush(Qt::white);
+    m_bkBrush = QBrush(Qt::gray);
     m_fgBrush = QBrush(Qt::blue);
-    m_lineBrush = QBrush(Qt::black);
+    // m_lineBrush = QBrush(Qt::black);
 }
 
 void HistView::setValues(const QVector<double> vs)
@@ -31,6 +31,7 @@ void HistView::paintEvent(QPaintEvent *event)
         return;
     
     QPainter painter(this);
+    painter.eraseRect(rect());
     painter.setBackground(m_bkBrush);
     painter.setBrush(m_fgBrush);
     double min_value = 1.0e10;

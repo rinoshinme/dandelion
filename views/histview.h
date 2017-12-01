@@ -27,7 +27,7 @@ private:
     QVector<double> m_values;
     QBrush m_bkBrush;
     QBrush m_fgBrush;
-    QBrush m_lineBrush;
+    // QBrush m_lineBrush;
     
 };
 
