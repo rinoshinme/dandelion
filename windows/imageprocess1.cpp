@@ -24,20 +24,23 @@ ImageProcess1::ImageProcess1(QWidget *parent) : QWidget(parent)
     setWindowTitle("ImageProcess1");
     connect(btnGray, SIGNAL(clicked()), this, SLOT(convertGray()));
     
+    m_view_left->setSize(640, 480);
+    m_view_right->setSize(640, 480);
+    m_view_left->setMode(TImageView::MODE_ZOOM);
+    m_view_right->setMode(TImageView::MODE_FIXED);
+    
     QImage image;
     image.load("F:\\data\\test\\timg.jpg");
     m_view_left->setImage(image);
 }
 
-ImageProcess1::~ImageProcess1()
-{
-    
-}
-
 void ImageProcess1::convertGray()
 {
-    convertGrayImpl(m_view_left->image(), m_view_right->image());
-    update();
+    TImageRGB result;
+    convertGrayImpl(m_view_left->image(), result);
+    // QImage imgDisplay = result.saveToImage();
+    // m_view_right->setImage(imgDisplay);
+    m_view_right->setImage(result);
 }
 
 void ImageProcess1::convertGrayImpl(const TImageRGB &src, TImageRGB &dst)

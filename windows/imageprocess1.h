@@ -9,7 +9,7 @@ class ImageProcess1 : public QWidget
     Q_OBJECT
 public:
     explicit ImageProcess1(QWidget *parent = 0);
-    ~ImageProcess1();
+    
 signals:
     
 public slots:

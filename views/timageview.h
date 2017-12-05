@@ -16,10 +16,14 @@ public:
     
 public:
     TImageRGB& image() { return m_image; }
+    QSize sizeHint() const { return QSize(640, 480); }
+    QSize minimumSizeHint() const { return QSize(320, 240); }
+    void setSize(int w, int h) { resize(QSize(w, h)); }
     
 signals:
     
 public slots:
+    void setImage(const TImageRGB& image);
     void setImage(const QImage& image);
     void setImageFromFile(const QString& fname);
     void setMode(VIEW_MODE mode) { m_mode = mode; }

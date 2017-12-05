@@ -23,6 +23,8 @@ TImageView::TImageView(int winWidth, int winHeight, QWidget *parent)
     m_lButtonDown = false;
     
     m_bkBrush = QBrush(Qt::gray);
+    
+    // resize(QSize(640, 480));
 }
 
 void TImageView::createDummyImage(int width, int height)
@@ -57,6 +59,32 @@ void TImageView::setImageFromFile(const QString &fname)
     update();
 }
 
+void TImageView::setImage(const TImageRGB &image)
+{
+    // set m_image;
+    m_image.create(image.width(), image.height());
+    memcpy(m_image.dataPtr(), image.dataPtr(), image.width() * image.height() * sizeof(PixelRGB));
+    QImage temp = m_image.saveToImage();
+    m_pixmap = QPixmap::fromImage(temp);
+    m_validImage = true;
+    // m_scale = 1.0;
+    
+    int w = width();
+    int h = height();
+    int imageW = m_pixmap.width();
+    int imageH = m_pixmap.height();
+    double rw = w * 1.0 / imageW;
+    double rh = h * 1.0 / imageH;
+    m_scale = (rw > rh) ? rw : rh;
+    
+    m_curPoint = QPoint(0, 0);
+    m_downPoint = QPoint(0, 0);
+    m_movePoint = QPoint(0, 0);
+    m_lButtonDown = false;
+    checkGeometry();
+    update();
+}
+
 void TImageView::setImage(const QImage &image)
 {
     m_image.loadFromImage(image);
@@ -64,7 +92,16 @@ void TImageView::setImage(const QImage &image)
     QImage temp = m_image.saveToImage();
     m_pixmap = QPixmap::fromImage(temp);
     m_validImage = true;
-    m_scale = 1.0;
+    // m_scale = 1.0;
+    
+    int w = width();
+    int h = height();
+    int imageW = m_pixmap.width();
+    int imageH = m_pixmap.height();
+    double rw = w * 1.0 / imageW;
+    double rh = h * 1.0 / imageH;
+    m_scale = (rw > rh) ? rw : rh;
+    
     m_curPoint = QPoint(0, 0);
     m_downPoint = QPoint(0, 0);
     m_movePoint = QPoint(0, 0);

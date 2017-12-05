@@ -33,13 +33,13 @@ int main(int argc, char *argv[])
     view.show();
 #endif
     
-#if 1
+#if 0
     BasicGLView view;
     view.show();
 #endif
     
     
-#if 0
+#if 1
     ImageProcess1 win;
     win.show();
 #endif
