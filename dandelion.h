@@ -10,6 +10,7 @@
 #include "views/imageview.h"
 #include "views/waveview.h"
 #include "views/timageview.h"
+#include "views/basicglview.h"
 
 // windows
 #include "windows/logindlg.h"

@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,7 +18,8 @@ SOURCES += main.cpp\
     views/histview.cpp \
     views/waveview.cpp \
     views/timageview.cpp \
-    windows/imageprocess1.cpp
+    windows/imageprocess1.cpp \
+    views/basicglview.cpp
 
 HEADERS  += \
     views/imageview.h \
@@ -28,6 +30,7 @@ HEADERS  += \
     structs/timage.h \
     views/timageview.h \
     structs/pixel.h \
-    windows/imageprocess1.h
+    windows/imageprocess1.h \
+    views/basicglview.h
 
 FORMS    +=
