@@ -14,11 +14,12 @@ signals:
     
 public slots:
     void convertGray();
-    // void calcHistogram();
+    void calcHistogram();
     
 public:
     void convertGrayImpl(const TImageRGB& src, TImageRGB& dst);
-    // void calcHistogramImpl(const TImageRGB& src, QVector<double>& hist);
+    void calcHistogramImpl(const TImageRGB& src, QVector<int>& hist);
+    
     
 private:
     TImageView* m_view_left;

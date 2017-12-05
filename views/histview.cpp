@@ -1,6 +1,7 @@
 #include "histview.h"
 
 #include <QPainter>
+#include <QDebug>
 
 HistView::HistView(QWidget *parent) : QWidget(parent)
 {
@@ -52,14 +53,14 @@ void HistView::paintEvent(QPaintEvent *event)
     int winWidth = width();
     int winHeight = height();
     int binWidth = winWidth / m_values.size();
-    
+
     for (int i = 0; i < m_values.size(); ++i)
     {
-        int x1 = i * binWidth;
-        int x2 = (i + 1) * binWidth;
-        int y1 = (1.0 - (m_values[i] - min_value) / (max_value - min_value)) * winHeight;
-        int y2 = winHeight;
-        QRect rect(x1, y1, x2, y2);
+        int x = i * binWidth;
+        int w = binWidth;
+        int y = (1.0 - (m_values[i] - min_value) / (max_value - min_value)) * winHeight;
+        int h = winHeight - y;
+        QRect rect(x, y, w, h);
         painter.drawRect(rect);
     }
     // update();

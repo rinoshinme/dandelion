@@ -3,6 +3,9 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 
+#include "../structs/timage.h"
+#include "../views/histview.h"
+
 ImageProcess1::ImageProcess1(QWidget *parent) : QWidget(parent)
 {
     m_view_left = new TImageView(640, 480, this);
@@ -23,6 +26,7 @@ ImageProcess1::ImageProcess1(QWidget *parent) : QWidget(parent)
     
     setWindowTitle("ImageProcess1");
     connect(btnGray, SIGNAL(clicked()), this, SLOT(convertGray()));
+    connect(btnHist, SIGNAL(clicked()), this, SLOT(calcHistogram()));
     
     m_view_left->setSize(640, 480);
     m_view_right->setSize(640, 480);
@@ -58,6 +62,37 @@ void ImageProcess1::convertGrayImpl(const TImageRGB &src, TImageRGB &dst)
             row_dst[x].red = v;
             row_dst[x].green = v;
             row_dst[x].blue = v;
+        }
+    }
+}
+
+void ImageProcess1::calcHistogram()
+{
+    QVector<int> hist;
+    calcHistogramImpl(m_view_left->image(), hist);
+    QVector<double> histd;
+    histd.resize(hist.size());
+    for (int i = 0; i < hist.size(); ++i)
+        histd[i] = hist[i] * 1.0;
+    
+    HistView* view = new HistView;
+    view->setValues(histd);
+    view->show();
+}
+
+void ImageProcess1::calcHistogramImpl(const TImageRGB &src, QVector<int> &hist)
+{
+    hist.resize(256);
+    for (int i = 0; i < 256; ++i)
+        hist[i] = 0;
+    
+    for (int j = 0; j < src.height(); ++j)
+    {
+        PixelRGB* row_src = src.rowPtr(j);
+        for (int i = 0; i < src.width(); ++i)
+        {
+            Pixel8U v = row_src[i].toGray();
+            hist[v] += 1;
         }
     }
 }

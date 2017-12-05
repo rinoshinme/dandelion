@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     
 #endif
     
-#if 1
+#if 0
     PlotView view;
     view.show();
 #endif
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     view.show();
 #endif
     
-#if 0
+#if 1
     ImageProcess1 win;
     win.show();
 #endif
