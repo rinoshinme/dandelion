@@ -16,6 +16,11 @@ int main(int argc, char *argv[])
     
 #endif
     
+#if 1
+    PlotView view;
+    view.show();
+#endif
+    
 #if 0
     TImageRGB image(infile);
     qDebug() << image.width() << ", " << image.height();
@@ -38,8 +43,7 @@ int main(int argc, char *argv[])
     view.show();
 #endif
     
-    
-#if 1
+#if 0
     ImageProcess1 win;
     win.show();
 #endif

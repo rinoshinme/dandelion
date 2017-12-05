@@ -19,7 +19,9 @@ SOURCES += main.cpp\
     views/waveview.cpp \
     views/timageview.cpp \
     windows/imageprocess1.cpp \
-    views/basicglview.cpp
+    views/basicglview.cpp \
+    views/plotview.cpp \
+    structs/plotcurve.cpp
 
 HEADERS  += \
     views/imageview.h \
@@ -31,6 +33,8 @@ HEADERS  += \
     views/timageview.h \
     structs/pixel.h \
     windows/imageprocess1.h \
-    views/basicglview.h
+    views/basicglview.h \
+    views/plotview.h \
+    structs/plotcurve.h
 
 FORMS    +=

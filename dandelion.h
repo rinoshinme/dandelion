@@ -11,9 +11,11 @@
 #include "views/waveview.h"
 #include "views/timageview.h"
 #include "views/basicglview.h"
+#include "views/plotview.h"
 
 // windows
 #include "windows/logindlg.h"
 #include "windows/imageprocess1.h"
+
 
 #endif // DANDELION_H
